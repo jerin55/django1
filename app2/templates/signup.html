@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            body{
+                background-color:beige;
+            }
+            form{
+                background-color:darkslategray;
+                border-radius: 10px;
+                
+            }
+        </style>
+    </head>
+    <body>
+
+       
+
+        <h1 class="container" style="text-align: center; text-decoration: underline;">REGISTER</h1>
+
+        <div class="container ">
+            {% for message in messages %}
+        <h4>
+            <div class="alert alert-danger " style="text-align: center;">
+            {{ message }}
+        </div>
+        </h4>
+
+            {% endfor %}
+        </div>
+
+<div style="width: 40%; margin-left:30%">
+        <form method="post" action="{% url 'userceate' %}" class="form-group container" style="text-align: center; padding-top: 10px;">
+
+            {% csrf_token %}
+            <div style=" margin-top: 20px; ">
+            <input id="nm" type="text" name="first_name" placeholder="enter the first name..."  class="form-control"  ><br>
+            <input id="ln" type="text" name="last_name" placeholder="enter the last name..." class="form-control"><br>
+            <input id="un" type="text" name="username" placeholder="enter the username..." class="form-control"><br>
+            <input id="ml" type="text" name="email" placeholder="enter the email..." class="form-control"><br>
+            <input id="ps" type="password" name="password" placeholder="enter the passwpord..." class="form-control"><br>
+            <input id="cps" type="password" name="cpassword" placeholder="enter the conform password..." class="form-control"><br><br>
+<div style="text-align: center; padding-bottom: 10px;">
+            <button type="submit"  class="btn btn-primary">SIGN UP</button>
+        </div>
+        </form>
+    </div>
+
+    </body>
+</html>

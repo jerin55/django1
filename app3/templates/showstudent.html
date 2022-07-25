@@ -1,0 +1,50 @@
+{% extends 'first.html' %}
+
+{% block content %}
+
+<h1 class="container" style="text-align: center; text-decoration: underline;">STUDENTS LIST</h1>
+<div class="container" style="text-align: center;">
+
+<table border="2px" style=" margin-top: 50px; " class="container">
+    <thead style="text-align: center;">
+    <tr>
+        <th>STUDENT ID</th>
+        <th>STUDENT NAME</th>
+        <th>ADDRESS</th>
+        <th>AGE</th>
+        <th>DATE</th>
+        <th>COURSE</th>
+        <th>COURSE FEE</th>
+
+
+    </tr>
+</thead>
+
+    <tbody style="text-align: center;" class="container">
+        {% for s in sh   %}
+        <tr >
+            <th>{{ s.id }}</th>
+            <td>{{ s.student_name }}</td>
+            <td>{{ s.student_address }}</td>
+            <td>{{ s.student_age  }}</td>
+            <td>{{ s.join_date }}</td>
+            <td>{{ s.course.course_name }}</td>
+            <td>{{ s.course.course_fee }}</td>
+
+            
+             
+            <td>
+                <a style="color: red;" href="">Edit</a><br>
+                <a style="color: red;" href="">Delete</a>
+            </td>
+
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+
+
+{% endblock %}

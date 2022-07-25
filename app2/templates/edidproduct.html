@@ -1,0 +1,45 @@
+<html lang="en">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!-- Bootstrap CSS -->
+    </head>
+        <body>
+            <div class="container ">
+                <h1 class="alert alert-info text-center" style="text-align: center;">
+                    *UPDATE PRODUCT DETAILS*
+                </h1>
+                    <div style="text-align: center;" class="container">  
+                        <form method="post" action="/edit_product/{{ prdts.pk }}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <h3>Product Name :</h3>
+                            <input type="text" name="pname" class="form-control " value="{{ prdts.name }}">
+                            <h3>Price :</h3>
+                            <input type="number" name="price" class="form-control " value="{{ prdts.price }}">
+                            <h3>Quantity :</h3>
+                            <input type="number" name="qname" class="form-control " value="{{ prdts.quantity }}">
+                            <h3>Product Image :</h3>
+                            {% if prdts.image %}
+                            <img src="{{ prdts.image.url }}" class=" img-thumbnail" ><br><br>
+                            {% endif %}
+                            <input type="file" name="image"  class="form-control " accept="image/*" ><br><br>
+                            <button type="submit" class="btn btn-primary">UPDATE
+
+                            </button>
+                        </form>
+                    </div>
+                   
+                </div>
+            </div>
+        </body>
+        </html>

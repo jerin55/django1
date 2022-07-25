@@ -1,0 +1,37 @@
+{% extends 'first.html' %}
+
+{% block content %}
+
+<h1 class="container" style="text-align: center; text-decoration: underline;margin-top: 60px;color: saddlebrown;">COURSE</h1>
+
+<div class="container">
+    {% for message in messages %}
+    <h4 class="alert alert-danger" style="text-align: center;">
+        {{ message }}
+
+    </h4>
+    {% endfor %}
+</div>
+
+<div style="width: 40%; margin-left:30%">
+    <form class="container form-group " method="post" action="{% url 'addcourse' %}" >
+
+        {% csrf_token %}
+
+        <input type="text" name="course_name" id="nm" placeholder="enter the course name..." class="form-control"><br>
+        <input type="number" name="course_fee" id="ns" placeholder="enter the course fee..." class="form-control"><br><br>
+     <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+    </div>
+
+    
+    </form>
+
+   
+
+
+</div>
+
+
+
+{% endblock %}
